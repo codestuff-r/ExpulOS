@@ -1,3 +1,4 @@
+
 #include "syscall.h"
 #include "traps.h"
 
@@ -15,6 +16,7 @@ SYSCALL(pipe)
 SYSCALL(read)
 SYSCALL(write)
 SYSCALL(close)
+SYSCALL(dawn)
 SYSCALL(kill)
 SYSCALL(exec)
 SYSCALL(open)
@@ -29,3 +31,12 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
+
+/* Dawn Window API */
+SYSCALL(dawn_open)
+SYSCALL(dawn_close)
+SYSCALL(dawn_draw_pixel)
+SYSCALL(dawn_fill_rect)
+SYSCALL(dawn_draw_text)
+SYSCALL(dawn_poll_event)
+SYSCALL(dawn_present)

@@ -1,7 +1,9 @@
 struct stat;
 struct rtcdate;
 
-// system calls
+#include "dawnevent.h"
+
+/* system calls */
 int fork(void);
 int exit(void) __attribute__((noreturn));
 int wait(void);
@@ -9,6 +11,7 @@ int pipe(int*);
 int write(int, const void*, int);
 int read(int, void*, int);
 int close(int);
+int dawn(void);
 int kill(int);
 int exec(char*, char**);
 int open(const char*, int);
@@ -24,7 +27,16 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 
-// ulib.c
+/* Dawn Window API */
+int dawn_open(char*, int, int);
+int dawn_close(void);
+int dawn_draw_pixel(int, int, int);
+int dawn_fill_rect(int, int, int, int, int);
+int dawn_draw_text(int, int, char*, int);
+int dawn_poll_event(struct dawn_event*);
+int dawn_present(void);
+
+/* ulib.c */
 int stat(const char*, struct stat*);
 char* strcpy(char*, const char*);
 void *memmove(void*, const void*, int);

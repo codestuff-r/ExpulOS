@@ -8,6 +8,13 @@
 #include "proc.h"
 
 int
+sys_dawn(void)
+{
+  dawn_main();
+  return 0;
+}
+
+int
 sys_fork(void)
 {
   return fork();
